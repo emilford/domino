@@ -129,7 +129,7 @@ class Domino
       attributes << attribute
       callbacks[attribute] = callback
 
-      selector ||= %{.#{attribute.to_s.gsub("_", "-")}}
+      selector ||= %{[data-#{attribute.to_s.gsub("_", "-")}]}
 
       class_eval %{
         def #{attribute}

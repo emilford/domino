@@ -13,36 +13,36 @@ class TestApplication
         <html>
           <body>
             <h1>Here are people and animals</h1>
-            <div id='people'>
-              <div class='person'>
-                <h2 class='name'>Alice</h2>
-                <p class='last-name'>Cooper</p>
-                <p class='bio'>Alice is fun</p>
-                <p class='fav-color'>Blue</p>
-                <p class='age'>23</p>
+            <div data-people>
+              <div data-person>
+                <h2 data-name>Alice</h2>
+                <p data-last-name>Cooper</p>
+                <p data-bio>Alice is fun</p>
+                <p data-fav-color>Blue</p>
+                <p data-age>23</p>
               </div>
-              <div class='person'>
-                <h2 class='name'>Bob</h2>
-                <p class='last-name'>Marley</p>
-                <p class='bio'>Bob is smart</p>
-                <p class='fav-color'>Red</p>
-                <p class='age'>52</p>
+              <div data-person>
+                <h2 data-name>Bob</h2>
+                <p data-last-name>Marley</p>
+                <p data-bio>Bob is smart</p>
+                <p data-fav-color>Red</p>
+                <p data-age>52</p>
               </div>
-              <div class='person'>
-                <h2 class='name'>Charlie</h2>
-                <p class='last-name'>Murphy</p>
-                <p class='bio'>Charlie is wild</p>
-                <p class='fav-color'>Red</p>
+              <div data-person>
+                <h2 data-name>Charlie</h2>
+                <p data-last-name>Murphy</p>
+                <p data-bio>Charlie is wild</p>
+                <p data-fav-color>Red</p>
               </div>
-              <div class='person'>
-                <h2 class='name'>Donna</h2>
-                <p class='last-name'>Summer</p>
-                <p class='bio'>Donna is quiet</p>
+              <div data-person>
+                <h2 data-name>Donna</h2>
+                <p data-last-name>Summer</p>
+                <p data-bio>Donna is quiet</p>
               </div>
             </div>
-            <div id='animals'></div>
-            <div id='receipts'>
-              <div class='receipt' id='receipt-72' data-store='ACME'></div>
+            <div data-animals></div>
+            <div data-receipts>
+              <div data-receipt id='receipt-72' data-store='ACME'></div>
             </div>
           </body>
         </html>
@@ -57,30 +57,30 @@ class DominoTest < MiniTest::Unit::TestCase
   include Capybara::DSL
   module Dom
     class Person < Domino
-      selector '#people .person'
+      selector '[data-people] [data-person]'
       attribute :name
       attribute :last_name
-      attribute :biography, '.bio'
-      attribute :favorite_color, '.fav-color'
+      attribute :biography, '[data-bio]'
+      attribute :favorite_color, '[data-fav-color]'
       attribute :age do |text|
         text.to_i
       end
     end
 
     class Animal < Domino
-      selector '#animals .animal'
+      selector '[data-animals] [data-animal]'
       attribute :name
     end
 
     class Car < Domino
-      selector '#cars .car'
+      selector '[data-cars] [data-car]'
     end
 
     class NoSelector < Domino
     end
 
     class Receipt < Domino
-      selector '#receipts .receipt'
+      selector '[data-receipts] [data-receipt]'
     end
   end
 
