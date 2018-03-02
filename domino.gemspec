@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 Gem::Specification.new do |gem|
   gem.name = "domino"
-  gem.version = "0.7.1"
+  gem.version = "0.8.0"
   gem.platform = Gem::Platform::RUBY
   gem.authors = ["Nick Gauthier"]
   gem.email = ["ngauthier@gmail.com"]
@@ -23,4 +23,3 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency('rake')
   gem.add_development_dependency('simplecov')
 end
-
